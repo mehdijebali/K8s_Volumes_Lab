@@ -6,7 +6,7 @@ spec:
   storageClassName: local-storage
   persistentVolumeReclaimPolicy: Recycle
   capacity:
-    storage: 1Gi
+    storage: 10Mi
   accessModes:
     - ReadWriteOnce
   hostPath:
