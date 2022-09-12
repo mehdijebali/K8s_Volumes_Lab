@@ -7,8 +7,11 @@ spec:
   - name: redis
     image: redis
     volumeMounts:
-    - name: redis-storage
+    - name: hostpath-vol
       mountPath: /data/redis
   volumes:
   - name: redis-storage
     emptyDir: {}
+  - name: hostpath-vol
+    hostPath:
+      path: /var/tmp

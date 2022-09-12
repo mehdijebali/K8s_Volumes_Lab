@@ -6,11 +6,14 @@ spec:
   volumes:
   - name: hostpath-vol
     hostPath:
-      path: /var/tmp
+      path: /var/tmp/
   containers:
   - name: hostpath-pod
-    image: 'busybox'
-    command: ["/bin/sh", "-c", "echo 'Hello Team, This is Sample File for HostVolume - $(date)' >> /output/output.txt"]
+    image: k8s.gcr.io/busybox
+    args: 
+    - ash
+    - -c
+    - echo "echo Hello Team, This is Sample File for HostVolume - $(date) >> /output/output.txt"
     volumeMounts:
     - name: hostpath-vol
       mountPath: /output
