@@ -24,6 +24,21 @@ The **persistentVolumeReclaimPolicy** attribute defines how storage will be reus
 - Retain: Keep all the data. This require manual data cleanup and prepare for reuse.
 - Delete: Delete underlying storage resources automatically (Support for Cloud Resource Only).
 - Recycle: Automatically delete all data in underlying storage. Allow PVs to be reuse.
-## PersistentVolumeClaim
+## PersistentVolumeClaim (PVC)
+PersistentVolumeClaim (PVC) is a request for storage by a user. PVCs deﬁne a set of attribute Similar to those of PVs. 
+The main idea is that PVCs look for a PVs that is able to meet the criteria. If it found one, it will automatically be bound to that PV.
+```
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: my-pvc
+spec:
+  storageClassName: local-storage
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 4Mi
+```
 ## Storage Class
 ## Volume Types
