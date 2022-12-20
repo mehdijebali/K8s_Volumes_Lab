@@ -53,3 +53,7 @@ allowVolumeExpansion: true
 ```
 The field **allowVolumeExpansion** is the property of StorageClass and deﬁnes the ability to resize storage size after they are created. All Cloud Disk Supports this property.
 ## Volume Types
+#### emptyDir
+The emptyDir type is created when Pod is assigned to Node and Persist as long as Pod running on the Node. Multiple containers can refer the same emptyDir Volume. In fact, they can read and write the same ﬁles in the emptyDir volume, though that volume can be mounted at the same or different paths in each container.
+#### hostPath
+hostPath volume mounts a file or directory from the host node's filesystem into your Pod. This is not something that most Pods will need, but it offers a powerful escape hatch for some applications.
