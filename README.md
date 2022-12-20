@@ -41,4 +41,15 @@ spec:
       storage: 4Mi
 ```
 ## Storage Class
+StorageClass allows K8s Administrator to Specify all type of Storage Service they offer on their Platform. 
+```
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: local-storage
+provisioner: kubernetes.io/no-provisioner
+volumeBindingMode: WaitForFirstConsumer
+allowVolumeExpansion: true
+```
+The field **allowVolumeExpansion** is the property of StorageClass and deﬁnes the ability to resize storage size after they are created. All Cloud Disk Supports this property.
 ## Volume Types
