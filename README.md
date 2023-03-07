@@ -57,3 +57,27 @@ The field **allowVolumeExpansion** is the property of StorageClass and deﬁnes 
 The emptyDir type is created when Pod is assigned to Node and Persist as long as Pod running on the Node. Multiple containers can refer the same emptyDir Volume. In fact, they can read and write the same ﬁles in the emptyDir volume, though that volume can be mounted at the same or different paths in each container.
 #### hostPath
 hostPath volume mounts a file or directory from the host node's filesystem into your Pod. This is not something that most Pods will need, but it offers a powerful escape hatch for some applications.
+## Instructions
+1. Clone the project 
+```
+git clone https://github.com/mehdijebali/K8s_Ingress_Lab.git
+```
+2. Apply manifest using **kubectl**
+```
+kubectl apply -f /path/to/manifest.yml
+```
+3. You can check the status of pods, services, deployments, and ingresses  with the following commands
+```
+kubecl get pods | grep <pod_name>
+kubectl get sc | grep <storage_class_name>
+kubectl get pv | grep <persistent_volume_name>
+kubectl get pvc | grep <persistent_volume_claim_name>
+```
+4. You can also list additional information of specifice pod,service, deployment, and ingress for any debugging issue
+```
+kubectl describe pod <pod_name>
+kubectl describe pv <persistent_volume_name>
+kubectl describe pvc <persistent_volume_claim_name>
+kubectl describe sc <storage_class_name>
+```
+The **<pod_name>, <dstorage_class_name>, <persistent_volume_name>), <persistent_volume_claim_name>** are the values of the key `metadata.name` in each k8s manifest yaml file.
